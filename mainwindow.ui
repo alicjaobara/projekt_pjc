@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>871</width>
-    <height>454</height>
+    <width>996</width>
+    <height>581</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>20</y>
+      <x>860</x>
+      <y>30</y>
       <width>88</width>
       <height>34</height>
      </rect>
@@ -30,18 +30,21 @@
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>10</x>
       <y>10</y>
-      <width>531</width>
-      <height>371</height>
+      <width>600</width>
+      <height>600</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>70</y>
+      <x>860</x>
+      <y>80</y>
       <width>88</width>
       <height>34</height>
      </rect>
@@ -53,8 +56,8 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>120</y>
+      <x>860</x>
+      <y>130</y>
       <width>88</width>
       <height>34</height>
      </rect>
@@ -66,8 +69,8 @@
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>220</y>
+      <x>860</x>
+      <y>230</y>
       <width>88</width>
       <height>34</height>
      </rect>
@@ -79,8 +82,8 @@
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>170</y>
+      <x>860</x>
+      <y>180</y>
       <width>88</width>
       <height>34</height>
      </rect>
@@ -89,13 +92,65 @@
      <string>Kontynuuj</string>
     </property>
    </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>80</y>
+      <width>160</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Drzewa</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Wilki</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Owce</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Skały</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QTextEdit" name="textOwca"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QTextEdit" name="textWilk"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QTextEdit" name="textDrzewo"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="QTextEdit" name="textSkala"/>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>871</width>
+     <width>996</width>
      <height>30</height>
     </rect>
    </property>

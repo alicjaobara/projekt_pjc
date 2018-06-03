@@ -22,6 +22,7 @@ public:
 
 public slots:
     void update();
+    vector<int> getpopulacja();
 
 };
 

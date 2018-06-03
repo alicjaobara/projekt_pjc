@@ -20,14 +20,16 @@ protected:
     int y; // pozycja obiektu y góra
     int w; // szerokość obiektu (x)
     int h; // wysokość obiektu (y)
-public:
     int kontakt;
+public:
     CObiekt(int a=0, int b=0, int c=1, int d=1,int k=0);
     int getx();
     int gety();
     int getw();
     int geth();
-    virtual int update(int a, int b, vector<CObiekt*> ob, int t)=0;
+    int getkontakt();
+    virtual int gettyp()=0;
+    virtual int update(int a, int b, vector<CObiekt*> ob, vector<CGObiekt *> gob, int t)=0;
     virtual ~CObiekt()=0;
 };
 
@@ -35,16 +37,17 @@ class CDrzewo :public CObiekt
 {
     int wiek;
 public:
-    CDrzewo(int a=0, int b=0, int c=sDrzewow, int d=sDrzewoh, int w=10, int k=0);
-    int update(int a, int b, vector<CObiekt*> ob, int t);
-    int kontakt();
+    CDrzewo(int a=0, int b=0, int c=sDrzewow, int d=sDrzewoh, int w=1, int k=0);
+    int update(int a, int b, vector<CObiekt*> ob, vector<CGObiekt *> gob, int t);
+    int gettyp();
 };
 
 class CSkala :public CObiekt
 {
 public:
-    CSkala(int a=0, int b=0, int c=sSkalaw, int d=sSkalah, int k=0);
-    int update(int a, int b, vector<CObiekt*> ob, int t);
+    CSkala(int a=0, int b=0, int c=sSkalaw, int d=sSkalah, int k=-1);
+    int update(int a, int b, vector<CObiekt*> ob, vector<CGObiekt *> gob, int t);
+    int gettyp();
 };
 
 class COrganizm :public CObiekt
@@ -54,16 +57,17 @@ protected:
     int typ; //1- 2- 3-
 //    int atak;
 public:
-    COrganizm(int a=0, int b=0, int c=1, int d=1, int w=10, int t=1, int k=0);
-    virtual int update(int a, int b, vector<CObiekt*> ob, int t);
+    COrganizm(int a=0, int b=0, int t=1, int w=10, int c=1, int d=1, int k=0);
+    virtual int update(int a, int b, vector<CObiekt*> ob, vector<CGObiekt *> gob, int t);
     virtual void ruch(int a, int b)=0;
+    int gettyp();
     virtual ~COrganizm()=0;
 };
 
 class CWilk :public COrganizm
 {
 public:
-    CWilk(int a=0, int b=0, int c=sWilkw, int d=sWilkh, int w=1, int t=1, int k=5);
+    CWilk(int a=0, int b=0, int t=1, int w=1, int c=sWilkw, int d=sWilkh, int k=5);
 //    int update(int a, int b, vector<CObiekt*> ob, int t);
     void ruch(int a, int b);
     ~CWilk();
@@ -73,7 +77,7 @@ class COwca :public COrganizm
 {
 
 public:
-    COwca(int a=0, int b=0, int c=sOwcaw, int d=sOwcah, int w=1, int t=1, int k=1);
+    COwca(int a=0, int b=0, int t=1, int w=11, int c=sOwcaw, int d=sOwcah, int k=1);
     ~COwca();
 //    int update(int a, int b, vector<CObiekt*> ob, int t);
     void ruch(int a, int b);
@@ -83,15 +87,18 @@ class CWyspa
 {
     int x; // szerokość wyspy
     int y; // wysokość wyspy
+
+    vector<int> populacja;
     vector<CObiekt*> obiekty;
     vector<CGObiekt*> gobiekty;
 public:
-    CWyspa(int a=sWyspa, int b=sWyspa, int c=10);
+    CWyspa(int a=sWyspa, int b=sWyspa, int lw=lWilk, int lo=lOwca, int ld=lDrzewo, int ls=lSkala);
     void update();
     void wypiszVector();
     int getx();
     int gety();
     vector<CGObiekt *> getGO();
+    vector<int> getpopulacja();
     ~CWyspa();
 };
 

@@ -7,6 +7,9 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGraphicsItem>
+#include <QString>
+#include <string>
+
 
 #include "symulacja.h"
 

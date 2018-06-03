@@ -2,18 +2,23 @@
 
 CSymulacja::CSymulacja()
 {
-    wyspa = new CWyspa(300, 300, 10);
+    wyspa = new CWyspa();
     gwyspa = new CGWyspa(wyspa);
 }
 
 void CSymulacja::start()
 {
-    wyspa = new CWyspa(300, 300, 10);
+    wyspa = new CWyspa();
 }
 
 void CSymulacja::update()
 {
     wyspa->update();
+}
+
+vector<int> CSymulacja::getpopulacja()
+{
+    return wyspa->getpopulacja();
 }
 
 CSymulacja::~CSymulacja()
