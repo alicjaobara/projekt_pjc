@@ -1,8 +1,74 @@
 #include "grafika.h"
 
+CGObiekt::CGObiekt(CObiekt *o, QColor c)
+{
+    obiekt = o;
+    color = c;
+    setPos(obiekt->getx(),obiekt->gety());
+}
+
+QRectF CGObiekt::boundingRect() const
+{
+    return QRectF(0,0,obiekt->getw(),obiekt->geth());
+}
+
+void CGObiekt::update()
+{
+    setPos(obiekt->getx(),obiekt->gety());
+}
+
+CObiekt *CGObiekt::getObiekt()
+{
+    return obiekt;
+}
+
+CGObiekt::~CGObiekt()
+{
+//    delete obiekt;
+}
+
+CGDrzewo::CGDrzewo(CObiekt *w, QColor c):CGObiekt(w,c)
+{
+
+}
+
+void CGDrzewo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    QRectF rect = boundingRect();
+    QPen pen(color, 1);
+    painter->setPen(pen);
+    QPainterPath ellipsePath;
+    ellipsePath.arcTo(rect, 0.0, 360.0);
+    painter->fillPath(ellipsePath,color);
+}
+
+CGDrzewo::~CGDrzewo()
+{
+
+}
+
+CGSkala::CGSkala(CObiekt *w, QColor c):CGObiekt(w,c)
+{
+
+}
+
+void CGSkala::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    QRectF rect = boundingRect();
+    QPen pen(color, 1);
+    painter->setPen(pen);
+    QPainterPath ellipsePath;
+    ellipsePath.arcTo(rect, 0.0, 360.0);
+    painter->fillPath(ellipsePath,color);
+}
+
+CGSkala::~CGSkala()
+{
+
+}
+
 CGWyspa::CGWyspa(CWyspa *w)
 {
-    cout<<"CGWyspa"<<endl;
     wyspa=w;
 }
 
@@ -14,55 +80,28 @@ QRectF CGWyspa::boundingRect() const
 void CGWyspa::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QRectF rect = boundingRect();
-    QPen pen(Qt::black, 1);
+    QPen pen(colWyspa, 1);
     painter->setPen(pen);
     painter->drawRect(rect);
+    painter->fillRect(rect, colWyspa);
 }
 
 CGWyspa::~CGWyspa()
 {
-    cout<<"~CGWyspa"<<endl;
     delete wyspa;
 }
 
-CGOrganizm::CGOrganizm(COrganizm *o,  QColor c)
+CGOrganizm::CGOrganizm(CObiekt *o,  QColor c):CGObiekt(o,c)
 {
-    cout<<"CGOrganizm"<<endl;
-    organizm = o;
-    x=organizm->getx();
-    y=organizm->gety();
-    color = c;
-    setPos(x,y);
-}
-
-QRectF CGOrganizm::boundingRect() const
-{
-    return QRectF(0,0,5,5);
-}
-
-void CGOrganizm::update()
-{
-    cout<<"update CGOrganizm"<<endl;
-    x=organizm->getx();
-    y=organizm->gety();
-    setPos(x,y);
-}
-
-COrganizm *CGOrganizm::getOrgnizm()
-{
-    return organizm;
 }
 
 CGOrganizm::~CGOrganizm()
 {
-
-    delete organizm;
-    cout<<"~CGOrganizm"<<endl;
 }
 
-CGWilk::CGWilk(COrganizm *w, QColor c):CGOrganizm(w,c)
+CGWilk::CGWilk(CObiekt *w, QColor c):CGOrganizm(w,c)
 {
-    cout<<"CGWilk"<<endl;
+
 }
 
 void CGWilk::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -76,12 +115,12 @@ void CGWilk::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 
 CGWilk::~CGWilk()
 {
-    cout<<"~CGWilk"<<endl;
+
 }
 
-CGOwca::CGOwca(COrganizm *w, QColor c):CGOrganizm(w,c)
+CGOwca::CGOwca(CObiekt *w, QColor c):CGOrganizm(w,c)
 {
-    cout<<"CGOwca"<<endl;
+
 }
 
 void CGOwca::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -89,11 +128,12 @@ void CGOwca::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     QRectF rect = boundingRect();
     QPen pen(color, 1);
     painter->setPen(pen);
-    painter->drawEllipse(rect);
-//    painter->fillEllipse(rect, color);
+    QPainterPath ellipsePath;
+    ellipsePath.arcTo(rect, 0.0, 360.0);
+    painter->fillPath(ellipsePath,color);
 }
 
 CGOwca::~CGOwca()
 {
-    cout<<"~CGWilk"<<endl;
+
 }

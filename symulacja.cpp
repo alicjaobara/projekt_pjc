@@ -2,25 +2,22 @@
 
 CSymulacja::CSymulacja()
 {
-    wyspa = new CWyspa(200, 200, 5);
-
+    wyspa = new CWyspa(300, 300, 10);
+    gwyspa = new CGWyspa(wyspa);
 }
 
 void CSymulacja::start()
 {
-    wyspa = new CWyspa(200, 200, 5);
+    wyspa = new CWyspa(300, 300, 10);
 }
 
 void CSymulacja::update()
 {
-    cout<<"sym update"<<endl;
-    //    Sleep(1000);
     wyspa->update();
 }
 
 CSymulacja::~CSymulacja()
 {
-
     delete wyspa;
 }
 

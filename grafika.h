@@ -7,10 +7,42 @@
 #include <QGraphicsItem>
 #include <QPainter>
 #include "logika.h"
+#include "stale.h"
 
 class CWyspa;
 class COrganizm;
-class CWilk;
+//class CWilk;
+class CObiekt;
+
+class CGObiekt : public QGraphicsItem
+{
+protected:
+    CObiekt *obiekt;
+    QColor color;
+public:
+    CGObiekt(CObiekt *o, QColor c = colObiekt);
+    QRectF boundingRect() const;
+    virtual void update();
+    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)=0;
+    virtual ~CGObiekt()=0;
+    CObiekt* getObiekt();
+};
+
+class CGDrzewo :public CGObiekt
+{
+public:
+    CGDrzewo(CObiekt *w, QColor c = colDrzewo);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    ~CGDrzewo();
+};
+
+class CGSkala :public CGObiekt
+{
+public:
+    CGSkala(CObiekt *w, QColor c = colSkala);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    ~CGSkala();
+};
 
 
 class CGWyspa : public QGraphicsItem
@@ -25,27 +57,18 @@ private:
     CWyspa *wyspa;
 };
 
-class CGOrganizm : public QGraphicsItem
+class CGOrganizm : public CGObiekt
 {
-protected:
-    int x;
-    int y;
-    COrganizm *organizm;
-    QColor color;
-
 public:
-    CGOrganizm(COrganizm *o, QColor c=Qt::black);
-    QRectF boundingRect() const;
-    virtual void update();
+    CGOrganizm(CObiekt *o, QColor c = colOrganizm);
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)=0;
     virtual ~CGOrganizm()=0;
-    COrganizm* getOrgnizm();
 };
 
 class CGWilk : public CGOrganizm
 {
 public:
-    CGWilk(COrganizm *w, QColor c=Qt::red);
+    CGWilk(CObiekt *w, QColor c = colWilk);
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     ~CGWilk();
 };
@@ -53,8 +76,10 @@ public:
 class CGOwca : public CGOrganizm
 {
 public:
-    CGOwca(COrganizm *w, QColor c=Qt::blue);
+    CGOwca(CObiekt *w, QColor c = colOwca);
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     ~CGOwca();
 };
+
+
 #endif // GRAFIKA_H

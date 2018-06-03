@@ -28,13 +28,17 @@ SOURCES += \
         mainwindow.cpp \
     logika.cpp \
     symulacja.cpp \
-    grafika.cpp
+    grafika.cpp \
+    dialog.cpp
 
 HEADERS += \
         mainwindow.h \
     logika.h \
     symulacja.h \
-    grafika.h
+    grafika.h \
+    stale.h \
+    dialog.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    dialog.ui

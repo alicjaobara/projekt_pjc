@@ -46,13 +46,19 @@ void MainWindow::on_pushButton_2_clicked()
     ui->graphicsView->update();
 }
 
+void MainWindow::on_pushButton_4_clicked()
+{
+    //koniec
+    qApp->exit();
+}
+
 void MainWindow::on_pushButton_3_clicked()
 {
     //stop
     timer->stop();
 }
 
-void MainWindow::on_pushButton_4_clicked()
+void MainWindow::on_pushButton_5_clicked()
 {
-    qApp->exit();
+    timer->start();
 }
