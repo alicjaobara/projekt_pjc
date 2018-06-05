@@ -11,11 +11,13 @@ const int sOrganizm = 5;
 const QColor colWilk = QColor(50, 50, 50, 255);
 const int sWilkw = 3;
 const int sWilkh = 2;
-const int lWilk = 1;
+const int lWilk = 50;
+const int rWilk = 5;
 const QColor colOwca = QColor(255, 255, 255, 255);
 const int sOwcaw = 3;
 const int sOwcah = 2;
-const int lOwca = 1000;
+const int lOwca = 200;
+const int rOwca = 3;
 
 const QColor colObiekt = Qt::red;
 const int sObiekt = 10;

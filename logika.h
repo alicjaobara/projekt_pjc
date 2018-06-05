@@ -29,7 +29,7 @@ public:
     int geth();
     int getkontakt();
     virtual int gettyp()=0;
-    virtual int update(int a, int b, vector<CObiekt*> ob, vector<CGObiekt *> gob, int t)=0;
+    virtual int update(int a, int b, vector<CObiekt *> &ob, vector<CGObiekt *> &gob, int t)=0;
     virtual ~CObiekt()=0;
 };
 
@@ -38,7 +38,7 @@ class CDrzewo :public CObiekt
     int wiek;
 public:
     CDrzewo(int a=0, int b=0, int c=sDrzewow, int d=sDrzewoh, int w=1, int k=0);
-    int update(int a, int b, vector<CObiekt*> ob, vector<CGObiekt *> gob, int t);
+    int update(int a, int b, vector<CObiekt *> &ob, vector<CGObiekt *> &gob, int t);
     int gettyp();
 };
 
@@ -46,7 +46,7 @@ class CSkala :public CObiekt
 {
 public:
     CSkala(int a=0, int b=0, int c=sSkalaw, int d=sSkalah, int k=-1);
-    int update(int a, int b, vector<CObiekt*> ob, vector<CGObiekt *> gob, int t);
+    int update(int a, int b, vector<CObiekt *> &ob, vector<CGObiekt *> &gob, int t);
     int gettyp();
 };
 
@@ -58,7 +58,7 @@ protected:
 //    int atak;
 public:
     COrganizm(int a=0, int b=0, int t=1, int w=10, int c=1, int d=1, int k=0);
-    virtual int update(int a, int b, vector<CObiekt*> ob, vector<CGObiekt *> gob, int t);
+    virtual int update(int a, int b, vector<CObiekt *> &ob, vector<CGObiekt *> &gob, int t);
     virtual void ruch(int a, int b)=0;
     int gettyp();
     virtual ~COrganizm()=0;

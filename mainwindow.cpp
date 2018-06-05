@@ -42,6 +42,13 @@ void MainWindow::on_pushButton_2_clicked()
 {
     //update
     sym->update();
+
+    scene = new QGraphicsScene(this);
+    ui->graphicsView->setScene(scene);
+    scene->addItem(sym->getgwyspa());
+    for(int i=0; i<sym->getwyspa()->getGO().size(); i++)
+        scene->addItem(sym->getwyspa()->getGO().at(i));
+
     ui->graphicsView->update();
 
 //    cout<<"wilki: "<<sym->getpopulacja().at(0)<<endl;

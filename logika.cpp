@@ -79,7 +79,7 @@ CDrzewo::CDrzewo(int a, int b, int c, int d, int w, int k):CObiekt(a,b,c,d,k)
     wiek=w;
 }
 
-int CDrzewo::update(int a, int b, vector<CObiekt *> ob, vector<CGObiekt *> gob,int t)
+int CDrzewo::update(int a, int b, vector<CObiekt *>& ob, vector<CGObiekt *>& gob,int t)
 {
 //    wiek++;
 //    if (wiek >= 4*life)
@@ -109,7 +109,7 @@ CSkala::CSkala(int a, int b, int c, int d, int k):CObiekt(a,b,c,d,k)
 
 }
 
-int CSkala::update(int a, int b, vector<CObiekt *> ob, vector<CGObiekt *> gob,int t)
+int CSkala::update(int a, int b, vector<CObiekt *>& ob, vector<CGObiekt *>& gob,int t)
 {
     return -1;
 }
@@ -125,7 +125,7 @@ COrganizm::COrganizm(int a, int b, int t, int w, int c, int d, int k):CObiekt(a,
     typ=t;
 }
 
-int COrganizm::update(int a, int b, vector<CObiekt *> ob, vector<CGObiekt *> gob,int t)
+int COrganizm::update(int a, int b, vector<CObiekt *>& ob, vector<CGObiekt *>& gob,int t)
 {
     wiek++;
     if (wiek >= life)
@@ -162,9 +162,9 @@ int COrganizm::update(int a, int b, vector<CObiekt *> ob, vector<CGObiekt *> gob
                     {
                         if ((typ==1 && ob.at(i)->gettyp()==2) || (typ==2 && ob.at(i)->gettyp()==1))
                         {//rozmnazaj może
-                            cout<<"roz"<<endl;
+                            cout<<"roz "<<kontakt<<endl;
                             int l=rand()%100;
-//                            if (l%2 == 0)
+                            if (l%10 == 0)
                             {
                                 CObiekt *wsk;
                                 CGObiekt *gwsk;
@@ -183,7 +183,7 @@ int COrganizm::update(int a, int b, vector<CObiekt *> ob, vector<CGObiekt *> gob
                                     break;
                                 }
                                 ob.push_back(wsk);
-                                gob.push_back(gwsk);
+                                gob.push_back(gwsk); //trzeba to jeszce dodać do g view
                                 wsk=NULL;
                                 gwsk=NULL;
                             }
@@ -225,8 +225,9 @@ CWilk::CWilk(int a, int b, int t, int w, int c, int d, int k):COrganizm(a, b, t,
 
 void CWilk::ruch(int a, int b)
 {
-    x += rand()% 21 - 10; //od -10 do 10
-    y += rand()% 21 - 10; //od -10 do 10
+
+    x += rand()% (2*rWilk+1) - rWilk; //od -10 do 10
+    y += rand()% (2*rWilk+1) - rWilk; //od -10 do 10
 
     if (x >= a-w) x = a-w;
     else if(x < 0) x = 0;
@@ -246,8 +247,8 @@ COwca::COwca(int a, int b, int t, int w, int c, int d, int k):COrganizm(a, b, t,
 
 void COwca::ruch(int a, int b)
 {
-    x += rand()% 11 - 5; //od -5 do 5
-    y += rand()% 11 - 5; //od -5 do 5
+    x += rand()% (2*rOwca+1) - rOwca; //od -5 do 5
+    y += rand()% (2*rOwca+1) - rOwca; //od -5 do 5
 
     if (x >= a-w) x = a-w;
     else if(x < 0) x = 0;
@@ -346,7 +347,8 @@ CWyspa::CWyspa(int a, int b, int lw, int lo, int ld, int ls)
                 yo = rand()%(y+1-sOwcah);
             }
         }
-        CObiekt *wsk = new COwca(xo,yo,rand()%2+1,rand()%(life+1)+1);
+
+        CObiekt *wsk = new COwca(xo,yo,rand()%2+1,rand()%(life/2+1)+1);
         obiekty.push_back(wsk);
         CGObiekt *gwsk = new CGOwca(wsk);
         gobiekty.push_back(gwsk);
@@ -412,12 +414,13 @@ void CWyspa::update()
             break;
         }
     }
-    cout<<lw<<" "<<lo<<" "<<ld<<" "<<ls<<endl;
+//    cout<<lw<<" "<<lo<<" "<<ld<<" "<<ls<<endl;
     populacja.at(0)=(lw);
     populacja.at(1)=(lo);
     populacja.at(2)=(ld);
     populacja.at(3)=(ls);
-    cout<<populacja.at(0)<<" "<<populacja.at(1)<<" "<<populacja.at(2)<<" "<<populacja.at(3)<<endl;
+//    cout<<populacja.at(0)<<" "<<populacja.at(1)<<" "<<populacja.at(2)<<" "<<populacja.at(3)<<endl;
+
 }
 
 void CWyspa::wypiszVector()
