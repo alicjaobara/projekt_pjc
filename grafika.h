@@ -1,13 +1,11 @@
 #ifndef GRAFIKA_H
 #define GRAFIKA_H
 
-//#include <QObject>
-//#include <QtGui>
-//#include <QtCore>
 #include <QGraphicsItem>
 #include <QPainter>
 #include "logika.h"
 #include "stale.h"
+#include "wyspa.h"
 
 class CWyspa;
 class COrganizm;

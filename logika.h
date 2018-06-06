@@ -11,8 +11,6 @@ class CGObiekt;
 
 using namespace std;
 
-
-
 class CObiekt
 {
 protected:
@@ -83,24 +81,7 @@ public:
     void ruch(int a, int b);
 };
 
-class CWyspa
-{
-    int x; // szerokość wyspy
-    int y; // wysokość wyspy
 
-    vector<int> populacja;
-    vector<CObiekt*> obiekty;
-    vector<CGObiekt*> gobiekty;
-public:
-    CWyspa(int a=sWyspa, int b=sWyspa, int lw=lWilk, int lo=lOwca, int ld=lDrzewo, int ls=lSkala);
-    void update();
-    void wypiszVector();
-    int getx();
-    int gety();
-    vector<CGObiekt *> getGO();
-    vector<int> getpopulacja();
-    ~CWyspa();
-};
 
 bool sprawdzxy(int x, int y, int w, int h, vector<CObiekt*> ob);
 

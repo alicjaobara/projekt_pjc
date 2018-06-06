@@ -29,7 +29,8 @@ SOURCES += \
     logika.cpp \
     symulacja.cpp \
     grafika.cpp \
-    dialog.cpp
+    dialog.cpp \
+    wyspa.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -37,7 +38,8 @@ HEADERS += \
     symulacja.h \
     grafika.h \
     stale.h \
-    dialog.h
+    dialog.h \
+    wyspa.h
 
 FORMS += \
         mainwindow.ui \

@@ -8,7 +8,7 @@ CSymulacja::CSymulacja()
 
 void CSymulacja::start()
 {
-    wyspa = new CWyspa();
+//    wyspa = new CWyspa();
 }
 
 void CSymulacja::update()
