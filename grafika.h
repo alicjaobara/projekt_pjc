@@ -3,81 +3,81 @@
 
 #include <QGraphicsItem>
 #include <QPainter>
-#include "logika.h"
+#include "obiekt.h"
 #include "stale.h"
-#include "wyspa.h"
 
-class CWyspa;
-class COrganizm;
-//class CWilk;
+//class COrganizm;
 class CObiekt;
 
 class CGObiekt : public QGraphicsItem
 {
 protected:
     CObiekt *obiekt;
-    QColor color;
 public:
-    CGObiekt(CObiekt *o, QColor c = colObiekt);
+    CGObiekt(CObiekt *o);
     QRectF boundingRect() const;
     virtual void update();
-    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)=0;
-    virtual ~CGObiekt()=0;
+    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget)=0;
     CObiekt* getObiekt();
+    virtual ~CGObiekt()=0;
 };
 
 class CGDrzewo :public CGObiekt
 {
+    QColor color;
 public:
-    CGDrzewo(CObiekt *w, QColor c = colDrzewo);
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    CGDrzewo(CObiekt *w);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);
     ~CGDrzewo();
 };
 
 class CGSkala :public CGObiekt
 {
+    QColor color;
 public:
-    CGSkala(CObiekt *w, QColor c = colSkala);
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    CGSkala(CObiekt *w);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);
     ~CGSkala();
-};
-
-
-class CGWyspa : public QGraphicsItem
-{
-public:
-    CGWyspa(CWyspa *w);
-    QRectF boundingRect() const;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    ~CGWyspa();
-
-private:
-    CWyspa *wyspa;
 };
 
 class CGOrganizm : public CGObiekt
 {
 public:
-    CGOrganizm(CObiekt *o, QColor c = colOrganizm);
-    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)=0;
+    CGOrganizm(CObiekt *o);
+    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget)=0;
     virtual ~CGOrganizm()=0;
 };
 
 class CGWilk : public CGOrganizm
 {
 public:
-    CGWilk(CObiekt *w, QColor c = colWilk);
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    CGWilk(CObiekt *w);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);
     ~CGWilk();
 };
 
 class CGOwca : public CGOrganizm
 {
 public:
-    CGOwca(CObiekt *w, QColor c = colOwca);
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    CGOwca(CObiekt *w);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);
     ~CGOwca();
 };
 
+class CGZajac : public CGOrganizm
+{
+public:
+    CGZajac(CObiekt *w);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);
+    ~CGZajac();
+};
+
+class CGLis : public CGOrganizm
+{
+public:
+    CGLis(CObiekt *w);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);
+    ~CGLis();
+};
 
 #endif // GRAFIKA_H

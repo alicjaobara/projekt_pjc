@@ -1,9 +1,8 @@
 #include "grafika.h"
 
-CGObiekt::CGObiekt(CObiekt *o, QColor c)
+CGObiekt::CGObiekt(CObiekt *o)
 {
     obiekt = o;
-    color = c;
     setPos(obiekt->getx(),obiekt->gety());
 }
 
@@ -27,9 +26,9 @@ CGObiekt::~CGObiekt()
 //    delete obiekt;
 }
 
-CGDrzewo::CGDrzewo(CObiekt *w, QColor c):CGObiekt(w,c)
+CGDrzewo::CGDrzewo(CObiekt *w):CGObiekt(w)
 {
-
+    color = colDrzewo;
 }
 
 void CGDrzewo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -47,9 +46,9 @@ CGDrzewo::~CGDrzewo()
 
 }
 
-CGSkala::CGSkala(CObiekt *w, QColor c):CGObiekt(w,c)
+CGSkala::CGSkala(CObiekt *w):CGObiekt(w)
 {
-
+    color = colSkala;
 }
 
 void CGSkala::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -67,31 +66,9 @@ CGSkala::~CGSkala()
 
 }
 
-CGWyspa::CGWyspa(CWyspa *w)
-{
-    wyspa=w;
-}
 
-QRectF CGWyspa::boundingRect() const
-{
-    return QRectF(0,0,wyspa->getx(),wyspa->gety());
-}
 
-void CGWyspa::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{
-    QRectF rect = boundingRect();
-    QPen pen(colWyspa, 1);
-    painter->setPen(pen);
-    painter->drawRect(rect);
-    painter->fillRect(rect, colWyspa);
-}
-
-CGWyspa::~CGWyspa()
-{
-    delete wyspa;
-}
-
-CGOrganizm::CGOrganizm(CObiekt *o,  QColor c):CGObiekt(o,c)
+CGOrganizm::CGOrganizm(CObiekt *o):CGObiekt(o)
 {
 }
 
@@ -99,7 +76,7 @@ CGOrganizm::~CGOrganizm()
 {
 }
 
-CGWilk::CGWilk(CObiekt *w, QColor c):CGOrganizm(w,c)
+CGWilk::CGWilk(CObiekt *w):CGOrganizm(w)
 {
 
 }
@@ -107,10 +84,8 @@ CGWilk::CGWilk(CObiekt *w, QColor c):CGOrganizm(w,c)
 void CGWilk::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QRectF rect = boundingRect();
-    QPen pen(color, 1);
-    painter->setPen(pen);
-    painter->drawRect(rect);
-    painter->fillRect(rect, color);
+    QImage image(":/rys/wolf.png");
+    painter->drawImage(rect,image);
 }
 
 CGWilk::~CGWilk()
@@ -118,7 +93,7 @@ CGWilk::~CGWilk()
 
 }
 
-CGOwca::CGOwca(CObiekt *w, QColor c):CGOrganizm(w,c)
+CGOwca::CGOwca(CObiekt *w):CGOrganizm(w)
 {
 
 }
@@ -126,14 +101,45 @@ CGOwca::CGOwca(CObiekt *w, QColor c):CGOrganizm(w,c)
 void CGOwca::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QRectF rect = boundingRect();
-    QPen pen(color, 1);
-    painter->setPen(pen);
-    QPainterPath ellipsePath;
-    ellipsePath.arcTo(rect, 0.0, 360.0);
-    painter->fillPath(ellipsePath,color);
+    QImage image(":/rys/sheep.png");
+    painter->drawImage(rect,image);
 }
 
 CGOwca::~CGOwca()
+{
+
+}
+
+CGZajac::CGZajac(CObiekt *w):CGOrganizm(w)
+{
+
+}
+
+void CGZajac::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    QRectF rect = boundingRect();
+    QImage image(":/rys/rabbit.png");
+    painter->drawImage(rect,image);
+}
+
+CGZajac::~CGZajac()
+{
+
+}
+
+CGLis::CGLis(CObiekt *w):CGOrganizm(w)
+{
+
+}
+
+void CGLis::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    QRectF rect = boundingRect();
+    QImage image(":/rys/fox.png");
+    painter->drawImage(rect,image);
+}
+
+CGLis::~CGLis()
 {
 
 }

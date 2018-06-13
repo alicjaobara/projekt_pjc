@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>287</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,40 +32,116 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>40</y>
+     <x>210</x>
+     <y>20</y>
      <width>160</width>
-     <height>141</height>
+     <height>101</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="1">
-     <widget class="QPlainTextEdit" name="plainTextEdit_2"/>
-    </item>
-    <item row="0" column="0">
+    <item row="1" column="0">
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>TextLabel</string>
+       <string>Szerokość</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QPlainTextEdit" name="plainTextEdit"/>
-    </item>
-    <item row="5" column="1">
-     <widget class="QPlainTextEdit" name="plainTextEdit_3"/>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
+    <item row="3" column="0">
      <widget class="QLabel" name="label_2">
       <property name="text">
-       <string>TextLabel</string>
+       <string>Wysokość</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Wyspa</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QTextEdit" name="textWyspaSzerokosc"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QTextEdit" name="textWyspaWysokosc"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>182</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="1" column="3">
+     <widget class="QTextEdit" name="textOwca"/>
+    </item>
+    <item row="0" column="0" colspan="4">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Początkowa liczebność</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="3">
+     <widget class="QTextEdit" name="textSkala"/>
+    </item>
+    <item row="6" column="3">
+     <widget class="QTextEdit" name="textLis"/>
+    </item>
+    <item row="4" column="3">
+     <widget class="QTextEdit" name="textWilk"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Zające</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QTextEdit" name="textZajac"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Owce</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>Wilki</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="3">
+     <widget class="QTextEdit" name="textDrzewo"/>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>Lisy</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Drzewa</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Skały</string>
       </property>
      </widget>
     </item>

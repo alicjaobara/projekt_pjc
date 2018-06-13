@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 #include "mainwindow.h"
-#include "logika.h"
+#include "obiekt.h"
 #include "symulacja.h"
 #include <QApplication>
 

@@ -81,9 +81,19 @@ public:
     void ruch(int a, int b);
 };
 
+class CZajac :public COrganizm
+{
+
+public:
+    CZajac(int a=0, int b=0, int t=1, int w=11, int c=sZajacw, int d=sZajach, int k=1);
+    ~CZajac();
+//    int update(int a, int b, vector<CObiekt*> ob, int t);
+    void ruch(int a, int b);
+};
 
 
 bool sprawdzxy(int x, int y, int w, int h, vector<CObiekt*> ob);
+bool sprawdzxy0(int x, int y, int w, int h, vector<CObiekt*> ob);
 
 
 #endif // LOGIKA_H

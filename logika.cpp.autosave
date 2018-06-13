@@ -192,7 +192,7 @@ int COrganizm::update(int a, int b, vector<CObiekt *>& ob, vector<CGObiekt *>& g
                     }
                     else
                     {
-                        if(z < 0)
+                        if(z < 1)
                         {
                             return i;//to zabij
                         }
@@ -262,3 +262,24 @@ COwca::~COwca()
 }
 
 
+
+CZajac::CZajac(int a, int b, int t, int w, int c, int d, int k):COrganizm(a, b, t, w, c, d, k)
+{
+    
+}
+
+void CZajac::ruch(int a, int b)
+{
+    x += rand()% (2*rZajac+1) - rZajac; //od -5 do 5
+    y += rand()% (2*rZajac+1) - rZajac; //od -5 do 5
+
+    if (x >= a-w) x = a-w;
+    else if(x < 0) x = 0;
+    if (y >= b-h) y = b-h;
+    else if (y < 0) y = 0;
+}
+
+CZajac::~CZajac()
+{
+    
+}

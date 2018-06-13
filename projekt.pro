@@ -26,21 +26,40 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    logika.cpp \
     symulacja.cpp \
     grafika.cpp \
     dialog.cpp \
-    wyspa.cpp
+    wyspa.cpp \
+    obiekt.cpp \
+    organizm.cpp \
+    drzewo.cpp \
+    skala.cpp \
+    wilk.cpp \
+    owca.cpp \
+    zajac.cpp \
+    lis.cpp \
+    gwyspa.cpp
 
 HEADERS += \
         mainwindow.h \
-    logika.h \
     symulacja.h \
     grafika.h \
     stale.h \
     dialog.h \
-    wyspa.h
+    wyspa.h \
+    obiekt.h \
+    organizm.h \
+    drzewo.h \
+    skala.h \
+    wilk.h \
+    owca.h \
+    zajac.h \
+    lis.h \
+    gwyspa.h
 
 FORMS += \
         mainwindow.ui \
     dialog.ui
+
+RESOURCES += \
+    rs.qrc

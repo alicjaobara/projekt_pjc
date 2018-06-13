@@ -10,8 +10,11 @@
 #include <QString>
 #include <string>
 
-
+#include <QMessageBox>
 #include "symulacja.h"
+#include "dialog.h"
+
+//using namespace std;
 
 namespace Ui {
 class MainWindow;
@@ -38,6 +41,7 @@ private slots:
     void on_pushButton_3_clicked();
     void on_pushButton_4_clicked();
     void on_pushButton_5_clicked();
+    void symupdate();
 };
 
 #endif // MAINWINDOW_H
