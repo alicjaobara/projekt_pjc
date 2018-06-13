@@ -28,7 +28,7 @@ CGObiekt::~CGObiekt()
 
 CGDrzewo::CGDrzewo(CObiekt *w):CGObiekt(w)
 {
-    color = colDrzewo;
+    color = QColor(50, 204, 50, 255);
 }
 
 void CGDrzewo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -48,7 +48,7 @@ CGDrzewo::~CGDrzewo()
 
 CGSkala::CGSkala(CObiekt *w):CGObiekt(w)
 {
-    color = colSkala;
+    color = QColor(100, 100, 100, 255);
 }
 
 void CGSkala::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

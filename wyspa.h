@@ -16,18 +16,11 @@
 
 using namespace std;
 
-//class CObiekt;
-//class CGObiekt;
-//class CZajac;
-//class COwca;
-//class CWilk;
-//class CLis;
-
-const int lWilk = 30;
-const int lOwca = 50;
-const int lZajac = 50;
-const int lLis = 30;
-const int lDrzewo = 400;
+const int lWilk = 20;
+const int lOwca = 40;
+const int lZajac = 40;
+const int lLis = 20;
+const int lDrzewo = 300;
 const int lSkala = 5;
 
 class CWyspa
@@ -38,9 +31,8 @@ class CWyspa
     vector<CObiekt*> obiekty; // vector wszystkich obiektów
     vector<CGObiekt*> gobiekty; // vector organizmów
 public:
-    CWyspa(int x=700, int y=550, int lw=lWilk, int lo=lOwca, int ld=lDrzewo, int ls=lSkala, int lz=lZajac, int ll=lLis);
+    CWyspa(int x=500, int y=350, int lw=lWilk, int lo=lOwca, int ld=lDrzewo, int ls=lSkala, int lz=lZajac, int ll=lLis);
     void update();
-    void wypiszVector();
     int getx();
     int gety();
     vector<CGObiekt *> getGO();

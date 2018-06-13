@@ -9,11 +9,10 @@
 class CObiekt;
 class CGObiekt;
 
-const int rWilk = 5;
-const int rOwca = 3;
-const int rZajac = 4;
-const int rLis = 4;
-const int life = 10000;
+const int rWilk = 7;
+const int rOwca = 4;
+const int rZajac = 5;
+const int rLis = 5;
 
 class COrganizm :public CObiekt
 {

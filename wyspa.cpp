@@ -142,10 +142,11 @@ CWyspa::~CWyspa()
     {
         delete obiekty.at(i);
     }
-    for(int i=0; i<gobiekty.size(); i++)
-    {
-        delete gobiekty.at(i);
-    }
+//    obiekty.empty();
+//    for(int i=0; i<gobiekty.size(); i++)
+//    {
+//        delete gobiekty.at(i);
+//    }
 }
 
 void CWyspa::update()
@@ -155,6 +156,7 @@ void CWyspa::update()
         int z = obiekty.at(i)->update(x, y, obiekty, gobiekty, i);
         if (z!=-1)
         {
+            cout<<"p ";
             i--;
             CObiekt *wsk = obiekty.at(z);
             delete wsk;
@@ -162,6 +164,7 @@ void CWyspa::update()
             CGObiekt *gwsk = gobiekty.at(z);
             gobiekty.erase(gobiekty.begin()+z);
             delete gwsk;
+            cout<<"k"<<endl;
         }
         else
         {
@@ -202,20 +205,6 @@ void CWyspa::update()
     populacja.at(4)=(lz);
     populacja.at(5)=(ll);
     populacja.at(6)=(lw+lo+ld+ls+lz+ll);
-}
-
-void CWyspa::wypiszVector()
-{
-    cout<<"org"<<endl;
-    for(int i=0; i<obiekty.size(); i++)
-    {
-        cout<<i<<"- x: "<<obiekty.at(i)->getx()<<" y: "<<obiekty.at(i)->gety()<<endl;
-    }
-    cout<<"gOrg"<<endl;
-    for(int i=0; i<gobiekty.size(); i++)
-    {
-        cout<<i<<"- x: "<<gobiekty.at(i)->getObiekt()->getx()<<" y: "<<gobiekty.at(i)->getObiekt()->gety()<<endl;
-    }
 }
 
 int CWyspa::getx()

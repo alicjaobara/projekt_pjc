@@ -38,27 +38,12 @@ void MainWindow::on_pushButton_clicked()
         scene->addItem(sym->getwyspa()->getGO().at(i));
 }
 
-void MainWindow::on_pushButton_2_clicked()
-{
-    //opcje
-//    timer->stop();
-//    scene = new QGraphicsScene(this);
-//    ui->graphicsView->setScene(scene);
-//    ui->graphicsView->update();
-//    Dialog *mdialog;
-//    mdialog=new Dialog(this,sym);
-//    mdialog->setModal(true);
-//    mdialog->exec();
-//    sym=mdialog->getsym();
-//    delete mdialog;
-//    cout<<"tu"<<endl;
-}
 void MainWindow::symupdate()
 {
     //update
     sym->update();
 
-    const int limit = 1000;
+    const int limit = 600;
     if (sym->getpopulacja().at(6)<=limit)
     {
         scene = new QGraphicsScene(this);
@@ -84,20 +69,17 @@ void MainWindow::symupdate()
     }
     else
     {
-        //        cout<<"tutaj stop komunikat"<<endl;
         timer->stop();
         QMessageBox::information(this,"Komunikat","Za dużo obiektów.");
         return;
-        //        komunikat k;
-        //        k.pisz("tekscior");
-        //        k.show();
     }
 }
 
 void MainWindow::on_pushButton_4_clicked()
 {
     //koniec
-    qApp->exit();
+    this->close();
+//    qApp->exit();
 }
 
 void MainWindow::on_pushButton_3_clicked()

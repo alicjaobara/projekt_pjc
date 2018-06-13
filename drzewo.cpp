@@ -14,29 +14,29 @@ int CDrzewo::update(int x, int y, vector<CObiekt *>& ob, vector<CGObiekt *>& gob
     }
     else
     {
-        int l=rand()%1000;
-        if (l%200 == 0) //rośnie
+        int l=rand()%100;
+        if (l%100 == 0) //rośnie
         {
             int xo,yo;
-            int l2=rand()%3;
             do
             {
+                int l2=rand()%3;
                 switch (l2) {
                 case 0:
-                    xo=this->x+5;
-                    yo=this->y+5;
+                    xo=this->x+10;
+                    yo=this->y+10;
                     break;
                 case 1:
-                    xo=this->x+5;
-                    yo=this->y-5;
+                    xo=this->x+10;
+                    yo=this->y-10;
                     break;
                 case 2:
-                    xo=this->x-5;
-                    yo=this->y+5;
+                    xo=this->x-10;
+                    yo=this->y+10;
                     break;
                 case 3:
-                    xo=this->x-5;
-                    yo=this->y-5;
+                    xo=this->x-10;
+                    yo=this->y-10;
                     break;
                 default:
                     break;

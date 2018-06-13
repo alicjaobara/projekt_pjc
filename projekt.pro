@@ -28,7 +28,6 @@ SOURCES += \
         mainwindow.cpp \
     symulacja.cpp \
     grafika.cpp \
-    dialog.cpp \
     wyspa.cpp \
     obiekt.cpp \
     organizm.cpp \
@@ -45,7 +44,6 @@ HEADERS += \
     symulacja.h \
     grafika.h \
     stale.h \
-    dialog.h \
     wyspa.h \
     obiekt.h \
     organizm.h \
@@ -58,8 +56,7 @@ HEADERS += \
     gwyspa.h
 
 FORMS += \
-        mainwindow.ui \
-    dialog.ui
+        mainwindow.ui
 
 RESOURCES += \
     rs.qrc

@@ -9,6 +9,8 @@
 class CGObiekt;
 //class CGWilk;
 
+const int life = 10000;
+
 using namespace std;
 
 class CObiekt
